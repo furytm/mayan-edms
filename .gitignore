@@ -41,7 +41,7 @@ docs/chapters/apps/
 gitlab-ci-volume/
 .DS_Store
 config-local.env
-MANIFEST.in
+
 forge/.env-local
 __pycache__/
 .config.env.mk
