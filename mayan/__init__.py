@@ -1,4 +1,4 @@
-__title__ = 'Mayan EDMS'
+__title__ =  'Alpha Leone EDMS'
 __version__ = '4.11.3'
 __build__ = 0x041103
 __build_string__ = 'v4.11.3_Mon Apr 27 20:15:00 2026 -0400'

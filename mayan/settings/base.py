@@ -161,6 +161,7 @@ INSTALLED_APPS = (
     'mayan.apps.file_metadata_ollama.apps.FileMetadataOllamaApp',
     'mayan.apps.file_metadata_openai.apps.FileMetadataOpenAIApp',
     'mayan.apps.file_metadata_pypdf.apps.FileMetadataPyPDFApp',
+    'mayan.apps.government_reference.apps.GovernmentReferenceApp',
     'mayan.apps.linking.apps.LinkingApp',
     'mayan.apps.mailer.apps.MailerApp',
     'mayan.apps.mayan_statistics.apps.StatisticsApp',
