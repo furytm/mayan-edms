@@ -17,6 +17,8 @@ GOVERNMENT_REFERENCE_VALIDATOR_PATH = (
     'mayan.apps.government_reference.metadata_validators.'
     'GovernmentReferenceNumberValidator'
 )
+DEFAULT_REFERENCE_DEPARTMENT = 'PROC'
+DEFAULT_REFERENCE_MINISTRY = 'MOF'
 
 
 def get_government_reference_metadata_type():

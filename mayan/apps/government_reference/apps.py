@@ -5,6 +5,7 @@ from mayan.apps.app_manager.apps import MayanAppConfig
 from mayan.apps.common.menus import menu_object
 from mayan.apps.events.classes import ModelEventType
 from mayan.apps.acls.classes import ModelPermission
+from mayan.apps.documents.signals import signal_post_document_file_upload
 
 from .events import event_government_reference_generated
 from .links import link_government_reference_generate
@@ -22,6 +23,9 @@ class GovernmentReferenceApp(MayanAppConfig):
     def ready(self):
         super().ready()
 
+        from .handlers import handler_post_document_file_upload_generate_reference
+        from .wizard_steps import patch_document_create_metadata_wizard_step
+
         Document = apps.get_model(
             app_label='documents', model_name='Document'
         )
@@ -36,3 +40,11 @@ class GovernmentReferenceApp(MayanAppConfig):
         menu_object.bind_links(
             links=(link_government_reference_generate,), sources=(Document,)
         )
+        signal_post_document_file_upload.connect(
+            dispatch_uid='government_reference_handler_post_document_file_upload_generate_reference',
+            receiver=handler_post_document_file_upload_generate_reference,
+            sender=apps.get_model(
+                app_label='documents', model_name='DocumentFile'
+            )
+        )
+        patch_document_create_metadata_wizard_step()
