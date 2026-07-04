@@ -108,6 +108,12 @@ networks:
 services:
   app:
     <<: [*mayan-container, *mayan-healthcheck, *mayan-traefik-labels, *mayan-frontend-ports]
+
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+
+    image: mayan-custom
     profiles:
       - all_in_one
 
